@@ -1,4 +1,5 @@
 pipeline {
+   sh 'git config --global --add safe.directory "$WORKSPACE"'
    stage('Unit Test - Frontend') {
     agent {
         docker {
