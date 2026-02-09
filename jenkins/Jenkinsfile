@@ -1,20 +1,17 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Unit Test - Frontend') {
-              agent {
-                  docker {
-                    image 'node:18'
-                    reuseNode true
-                  }
-              }
-            steps {
-                dir('bugtracker-frontend') {
-                  sh 'npm ci'
-                  sh 'npm test'
-                }
-            }
+   stage('Unit Test - Frontend') {
+    agent {
+        docker {
+            image 'node:18'
+            reuseNode true
         }
     }
+    steps {
+        dir('bugtracker-frontend') {
+            sh 'npm ci'
+            sh 'npm test'
+        }
+    }
+}
+
 }
